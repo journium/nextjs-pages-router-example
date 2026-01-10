@@ -16,7 +16,7 @@ This repository demonstrates Journium integration for **Next.js Pages Router**. 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/journium/nextjs-pagesrouter-example.git
+git clone https://github.com/journium/nextjs-pages-router-example.git
 cd nextjs-pages-router-example
 ```
 
