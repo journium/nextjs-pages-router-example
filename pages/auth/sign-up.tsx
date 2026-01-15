@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useStore } from "@/lib/store"
-import { track } from "@/lib/analytics"
+import { useTrackEvent } from "@journium/nextjs"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -16,6 +16,7 @@ import { toast } from "sonner"
 export default function SignUpPage() {
   const router = useRouter()
   const { setUser } = useStore()
+  const trackEvent = useTrackEvent()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -37,7 +38,7 @@ export default function SignUpPage() {
 
       setUser(mockUser)
       toast.success("Account created successfully!")
-      track("sign_up", { method: "email" })
+      trackEvent("sign_up", { method: "email" })
 
       setIsLoading(false)
       router.push("/onboarding")

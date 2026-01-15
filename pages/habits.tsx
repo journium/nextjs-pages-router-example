@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { PaywallDialog } from "@/components/paywall-dialog"
 import { useStore } from "@/lib/store"
-import { track } from "@/lib/analytics"
+import { useTrackEvent } from "@journium/nextjs"
 import { Plus, Archive } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
@@ -16,6 +16,7 @@ import { AppLayout } from "@/components/app-layout"
 
 export default function HabitsPage() {
   const { user, habits, addHabit, updateHabit } = useStore()
+  const trackEvent = useTrackEvent()
   const [showAddDialog, setShowAddDialog] = useState(false)
   const [showPaywall, setShowPaywall] = useState(false)
   const [newHabitTitle, setNewHabitTitle] = useState("")
@@ -29,7 +30,7 @@ export default function HabitsPage() {
     // Check free plan limit
     if (user?.plan === "free" && activeHabits.length >= 3) {
       setShowPaywall(true)
-      track("paywall_shown", { trigger: "habit_limit" })
+      trackEvent("paywall_shown", { trigger: "habit_limit" })
       return
     }
 
@@ -52,7 +53,7 @@ export default function HabitsPage() {
     })
 
     toast.success("Habit added!")
-    track("habit_created", { hasTarget: !!newHabitTarget })
+    trackEvent("habit_created", { hasTarget: !!newHabitTarget })
 
     setShowAddDialog(false)
     setNewHabitTitle("")
@@ -63,14 +64,14 @@ export default function HabitsPage() {
   const handleArchiveHabit = (id: string) => {
     updateHabit(id, { active: false })
     toast.success("Habit archived")
-    track("habit_archived", { habitId: id })
+    trackEvent("habit_archived", { habitId: id })
   }
 
   const handleRestoreHabit = (id: string) => {
     // Check free plan limit
     if (user?.plan === "free" && activeHabits.length >= 3) {
       setShowPaywall(true)
-      track("paywall_shown", { trigger: "habit_limit" })
+      trackEvent("paywall_shown", { trigger: "habit_limit" })
       return
     }
 
@@ -104,7 +105,7 @@ export default function HabitsPage() {
                   variant="default"
                   onClick={() => {
                     setShowPaywall(true)
-                    track("paywall_shown", { trigger: "upgrade_card" })
+                    trackEvent("paywall_shown", { trigger: "upgrade_card" })
                   }}
                   className="cursor-pointer"
                 >

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { useStore } from "@/lib/store"
-import { track } from "@/lib/analytics"
+import { useTrackEvent } from "@journium/nextjs"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -17,6 +17,7 @@ import { toast } from "sonner"
 export default function SignInPage() {
   const router = useRouter()
   const { setUser, habits } = useStore()
+  const trackEvent = useTrackEvent()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -37,7 +38,7 @@ export default function SignInPage() {
 
       setUser(mockUser)
       toast.success("Welcome back!")
-      track("sign_in", { method: "email" })
+      trackEvent("sign_in", { method: "email" })
 
       setIsLoading(false)
 
@@ -53,7 +54,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = () => {
     // Mock Google sign in
     toast.info("Google sign-in is a demo feature")
-    track("sign_in_attempt", { method: "google" })
+    trackEvent("sign_in_attempt", { method: "google" })
   }
 
   return (

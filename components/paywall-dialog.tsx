@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useStore } from "@/lib/store"
-import { track } from "@/lib/analytics"
+import { useTrackEvent } from "@journium/nextjs"
 import { Check, Crown } from "lucide-react"
 import { toast } from "sonner"
 
@@ -27,12 +27,12 @@ const features = {
 
 export function PaywallDialog({ open, onOpenChange, trigger = "upgrade_card" }: PaywallDialogProps) {
   const { upgradeToPro } = useStore()
+  const trackEvent = useTrackEvent()
 
   const handleUpgrade = () => {
     upgradeToPro()
     toast.success("Upgraded to Pro! (Demo)")
-    // TODO: track("upgrade_success", { trigger })
-    track("upgrade_success", { trigger })
+    trackEvent("upgrade_success", { trigger })
     onOpenChange(false)
   }
 
