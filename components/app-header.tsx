@@ -11,12 +11,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useStore } from "@/lib/store"
+import { useReset } from "@journium/nextjs"
 import { CircleUser } from "lucide-react"
 import { useRouter } from "next/router"
 
 export function AppHeader() {
   const { user, resetData } = useStore()
   const router = useRouter()
+  const reset = useReset()
 
   const currentDate = new Date().toLocaleDateString("en-US", {
     weekday: "short",
@@ -26,6 +28,7 @@ export function AppHeader() {
 
   const handleSignOut = () => {
     resetData()
+    reset()
     router.push("/auth/sign-in")
   }
 
