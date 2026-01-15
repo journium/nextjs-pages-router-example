@@ -12,8 +12,8 @@ importers:
         specifier: ^3.10.0
         version: 3.10.0(react-hook-form@7.70.0(react@19.2.0))
       '@journium/nextjs':
-        specifier: ^1.0.15
-        version: 1.0.15(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+        specifier: ^1.0.16
+        version: 1.0.16(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       '@radix-ui/react-accordion':
         specifier: 1.2.2
         version: 1.2.2(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -493,17 +493,17 @@ packages:
   '@journium/core@1.0.4':
     resolution: {integrity: sha512-cHp1lfcyPz2zVNUROfKu3oTBDY7GF7EdjoCxYACIf8Kma2Na+gDT1LME1cC7RKSnD5FN/sqPymBPs97bma+dAA==}
 
-  '@journium/js@1.0.6':
-    resolution: {integrity: sha512-s/MEctl0HIctLtXQo2DLKjdEMuP0ti+YltuULalljbRqKK2M0pxAMDp9XyGobPepMWYg22loCIQjltMaCJ55KQ==}
+  '@journium/js@1.0.7':
+    resolution: {integrity: sha512-bwxFpEdan+4bt+xSPlZf7DH1jKQ0f3lMCJMMrPxKoiSmQT7wQa9fEE2YRykiAFSX3wQ47+5ybFlIH7QUX7vfeg==}
 
-  '@journium/nextjs@1.0.15':
-    resolution: {integrity: sha512-swPehHkUe2/sPtO4zAJW0gW7ox0OXo88gr3XVs9rX04GwrcCSx3N+Q388b1l4KxPg4XkPQqLerRedyipsZNJuA==}
+  '@journium/nextjs@1.0.16':
+    resolution: {integrity: sha512-VYu8dVP6y5i9Jmmt6aCTyPBn1MGRp06SWDO5rhoXnFJlhR+chqGAKCOVnHDIzWLXN0Gqp3WMmKzx67sSWIB1pA==}
     peerDependencies:
       next: '>=12.0.0'
       react: '>=16.8.0'
 
-  '@journium/react@1.0.6':
-    resolution: {integrity: sha512-mdwJdJfmfNFSYYIKhX9zXM123c7NVvwe71jGf4BFm2+1saoGFs7pZPj6HjCUk5WgOulKT1dzDKpdFzybEwcCQQ==}
+  '@journium/react@1.0.7':
+    resolution: {integrity: sha512-51O8Q4WobQhsad5AI1RE2se0Nu/xpqE1qib/9EC4YS2QD5Ydn34mrRo//8lUubKdEjPn6NgKcuuOm5YTpLTjtQ==}
     peerDependencies:
       react: '>=16.8.0'
 
@@ -3349,22 +3349,22 @@ snapshots:
     dependencies:
       uuidv7: 1.1.0
 
-  '@journium/js@1.0.6':
+  '@journium/js@1.0.7':
     dependencies:
       '@journium/core': 1.0.4
 
-  '@journium/nextjs@1.0.15(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
+  '@journium/nextjs@1.0.16(next@16.1.1(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@journium/core': 1.0.4
-      '@journium/js': 1.0.6
-      '@journium/react': 1.0.6(react@19.2.0)
+      '@journium/js': 1.0.7
+      '@journium/react': 1.0.7(react@19.2.0)
       next: 16.1.1(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
 
-  '@journium/react@1.0.6(react@19.2.0)':
+  '@journium/react@1.0.7(react@19.2.0)':
     dependencies:
       '@journium/core': 1.0.4
-      '@journium/js': 1.0.6
+      '@journium/js': 1.0.7
       react: 19.2.0
 
   '@jridgewell/gen-mapping@0.3.13':
